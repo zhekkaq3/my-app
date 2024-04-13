@@ -1,4 +1,4 @@
-import { DataProductsTypes, getProducts } from "@/actions/getProduct";
+import { getProducts } from "@/actions/getProduct";
 import FormCustom from "./FormCustom";
 import ListProduct from "./ListProduct";
 

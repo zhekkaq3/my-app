@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/store/slices/postSlice.js", "src/components/FormCustom.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/store/slices/postSlice.js", "src/components/FormCustom.tsx"],
   "exclude": ["node_modules"]
 }
