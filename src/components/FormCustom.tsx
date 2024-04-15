@@ -15,8 +15,6 @@ import {
 } from "@/components/ui/form"
 import {
     AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
     AlertDialogContent,
     AlertDialogDescription,
     AlertDialogFooter,
@@ -64,7 +62,7 @@ export default function FormCustom() {
     const isLoading = useAppSelector((state) => state.post.isLoading);
 
 
-    const form = useForm<Tel>({
+    const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: {
             phone: "",
@@ -72,11 +70,11 @@ export default function FormCustom() {
         },
     })
 
-    function onSubmit(tel: { phone: Tel }) {
-        const { phone  } = tel 
-        console.log(phone)
+    function onSubmit(tel: z.infer<typeof FormSchema>) {
+        // const { phone  } = tel
+        // console.log(phone)
         dispatch(fetchOrderData({
-            phone,
+            phone : tel,
             cart: state.map(item => ({
                 "id": item.id,
                 "quantity": item.qty
