@@ -42,7 +42,14 @@ const FormSchema = z.object({
     }),
 });
 
+type CartItem = {
+    id: number;
+    quantity: number;
+}
 
+type Tel = {
+    phone: string;
+}
 
 export default function FormCustom() {
 
@@ -57,7 +64,7 @@ export default function FormCustom() {
     const isLoading = useAppSelector((state) => state.post.isLoading);
 
 
-    const form = useForm({
+    const form = useForm<Tel>({
         resolver: zodResolver(FormSchema),
         defaultValues: {
             phone: "",
@@ -65,8 +72,9 @@ export default function FormCustom() {
         },
     })
 
-    function onSubmit(tel) {
-        const { phone } = tel
+    function onSubmit(tel: { phone: Tel }) {
+        const { phone  } = tel 
+        console.log(phone)
         dispatch(fetchOrderData({
             phone,
             cart: state.map(item => ({
