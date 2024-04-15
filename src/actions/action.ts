@@ -15,8 +15,6 @@ export const fetchOrderData = createAsyncThunk(
   async ({ phone, cart }:{phone:TypePhone, cart: CartType[] }) => {
     try {
       const response = await postData(phone, cart);
-      console.log(response)
-
       return response;
     } catch (error) {
       throw error;
