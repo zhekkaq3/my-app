@@ -40,14 +40,6 @@ const FormSchema = z.object({
     }),
 });
 
-type CartItem = {
-    id: number;
-    quantity: number;
-}
-
-type Tel = {
-    phone: string;
-}
 
 export default function FormCustom() {
 
@@ -70,11 +62,9 @@ export default function FormCustom() {
         },
     })
 
-    function onSubmit(tel: z.infer<typeof FormSchema>) {
-        // const { phone  } = tel
-        // console.log(phone)
+    function onSubmit(phone: z.infer<typeof FormSchema>) {
         dispatch(fetchOrderData({
-            phone : tel,
+            phone,
             cart: state.map(item => ({
                 "id": item.id,
                 "quantity": item.qty

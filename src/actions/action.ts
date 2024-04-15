@@ -12,9 +12,9 @@ type CartType = {
 
 export const fetchOrderData = createAsyncThunk(
   'post/postData',
-  async ({ phone, cart }:{phone:{phone:TypePhone}, cart: CartType[] }) => {
+  async ({ phone, cart }:{phone:TypePhone, cart: CartType[] }) => {
     try {
-      const response = await postData(phone.phone, cart);
+      const response = await postData(phone, cart);
       console.log(response)
 
       return response;
