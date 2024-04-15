@@ -120,6 +120,10 @@ export default function FormCustom() {
                                 <AlertDialogDescription>
                                 {statePost.data.error}
                                 </AlertDialogDescription>
+                                <AlertDialogDescription>
+                                {statePost.data.error == null ? 'Спасибо! В ближайшее время с вами свяжеться наш менеджер!' : 'Спасибо! Наш менеджер вам перезвонит и поможет решить проблему!'}
+                                </AlertDialogDescription>
+
                             </>
                         }
                     </AlertDialogHeader>
