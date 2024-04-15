@@ -10,6 +10,6 @@ ui.shadcn
 
 Посторался реализовать весь функционал из тестового задание!!Даже чуть больше)) 
 
-результат выложил на Vercel https://text-red.vercel.app/
+результат выложил на Vercel https://test-job-red.vercel.app/
 
 Будут вопросы Телеграм @zhekkaq3
