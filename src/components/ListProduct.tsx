@@ -12,6 +12,11 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from "@/components/ui/popover"
 import ButtonGroup from './ButtonGroup';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 
@@ -54,9 +59,23 @@ export default function ListProduct({ page, initialProducts }: { page: number, i
                                 className='h-[320px] rounded-lg hover:scale-105'
                             />
                         </CardHeader>
-                        <CardContent className='p-6 sm:p-4'>
-                            
-                                <TooltipProvider>
+                        <CardContent className='p-6 sm:p-4 '>
+                            <Popover>
+                                <PopoverTrigger className='w-full'>
+                                    <TooltipProvider>
+                                        <Tooltip>
+                                            <TooltipTrigger asChild>
+                                                <CardTitle className='min-h-[50px] truncate cursor-pointer text-xl lg:text-2xl'>{product.title}</CardTitle>
+                                            </TooltipTrigger>
+                                            <TooltipContent>
+                                                <p>{product.title}</p>
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
+                                </PopoverTrigger>
+                                <PopoverContent>{product.title}</PopoverContent>
+                            </Popover>
+                            {/* <TooltipProvider>
                                     <Tooltip>
                                         <TooltipTrigger asChild>
                                         <CardTitle className='min-h-[50px] truncate cursor-pointer text-xl lg:text-2xl'>{product.title}</CardTitle>
@@ -65,7 +84,7 @@ export default function ListProduct({ page, initialProducts }: { page: number, i
                                             <p>{product.title}</p>
                                         </TooltipContent>
                                     </Tooltip>
-                                </TooltipProvider>
+                                </TooltipProvider> */}
 
                             <CardContent className='p-0'>
                                 <Accordion type="single" collapsible className="w-full">
